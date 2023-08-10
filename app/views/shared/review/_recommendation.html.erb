@@ -1,0 +1,22 @@
+<% reviews.reverse.each do |review| %>
+  <div class="mb-2">
+    <div class="review_box d-flex mt-2">
+      <div class="flex-shrink-0 avatar_review">
+        <% if review.user.image.present? %>
+          <%= image_tag review.user.image, class: "user_icon" %>
+        <% else %>
+          <%= image_tag 'user_icon.png', class: "user_icon" %>
+        <% end %>
+      </div>
+      <div class="flex-grow-1 ms-3">
+        <p><%= review.user.name %></p>
+        <p class="review_time"><%= review.created_at %></p>
+        <%= review.recommendation %>
+      </div>
+    </div>
+    <% if user_signed_in? && review.user.id == current_user.id %>
+      <%=link_to "編集する", edit_review_path(review.id), class: "ms-2" %>
+    <% end %>
+<hr>
+  </div>
+<% end %>

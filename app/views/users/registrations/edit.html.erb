@@ -1,0 +1,46 @@
+<section class="page-section">
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-lg-8 col-xl-6 text-center">
+          <h2 class="mt-0">編集</h2>
+          <hr class="divider" />
+        </div>
+    </div>
+    <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+      <div class="col-lg-6">
+        <%= form_with model: @user, url: user_registration_path do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+          <div class="form-floating mb-3">
+            <%= f.text_field :name, placeholder: "username", id: "name", class: "form-control", required: true %>
+            <%= f.label :name, "名前" %>
+          </div>
+          <div class="form-floating mb-3">
+            <%= f.text_field :email, placeholder: "email", id: "email", class: "form-control", required: true, pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"  %>
+            <%= f.label :email, "メールアドレス" %>
+          </div>
+          <div class="mb-3">
+            <%= f.file_field :image, placeholder: "ファイルを選択", class: "form-control", id: "imgage"  %>
+          </div>
+          <div class="form-floating mb-3">
+            <%= f.text_field :password, placeholder: "パスワード", class: "form-control", id: "password" %>
+            <%= f.label :password, "パスワード" %>
+          </div>
+          <div class="form-floating mb-3">
+            <%= f.text_field :password_confirmation, placeholder: "確認用パスワード", class: "form-control", id: "password_confirmation" %><br>
+            <%= f.label :password_confirmation, "確認用パスワード" %>
+          </div>
+
+          <div class="form-floating mb-3">
+            <%= f.text_field :current_password, placeholder: "現在のパスワード", class: "form-control", id: "current_password" %><br>
+            <%= f.label :current_password, "更新をしたい場合は、現在のパスワードを入力してください" %>
+          </div>
+          <div class="d-grid">
+            <%= button_tag(type: "submit", class: "btn btn-primary btn-xl") do %>
+              更新
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

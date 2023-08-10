@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  k_dorama: one
+  user: MyString
+  references: MyString
+  comment: MyText
+
+two:
+  k_dorama: two
+  user: MyString
+  references: MyString
+  comment: MyText

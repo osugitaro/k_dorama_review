@@ -1,0 +1,14 @@
+<% if k_dorama.reviews.present? %>
+  <div id="star-rate<%= k_dorama.id %>"></div>
+  <script>
+    $('#star-rate<%= k_dorama.id %>').empty();
+    $('#star-rate<%= k_dorama.id %>').raty({
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      half: true,
+      readOnly: true,
+      score: <%= k_dorama.reviews.average(:evaluation).round(1) %>,
+    });
+  </script>
+<% end %>

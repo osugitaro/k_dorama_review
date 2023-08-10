@@ -1,0 +1,18 @@
+<% if !user_signed_in? %>
+  <i class="fas fa-heart like-btn"></i>
+  <%= review.likes.count %>
+<% elsif current_user.likes.where(review_id: review.id).exists? %>
+  <div>
+    <%= link_to review_like_path(review, review.likes), class: "like_link", method: :delete, remote: true do %>
+      <i class="far fa-heart like-btn"></i>
+    <% end %>
+    <%= review.likes.count %>
+  </div>
+<% else %>
+  <div>
+    <%= link_to review_likes_path(review.id), class: "like_link", method: :post, remote: true do %>
+      <i class="fas fa-heart unlike-btn"></i>
+    <% end %>
+    <%= review.likes.count %>
+  </div>
+<% end %>

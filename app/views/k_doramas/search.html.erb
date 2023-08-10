@@ -1,0 +1,22 @@
+ <div class="wrapp" id="search_box">
+  <div class="container mt-5 ">
+    <div class="row">
+      <% @k_doramas.each do |k_dorama| %>
+        <div class="col-6 col-lg-4 gy-5">
+          <div class="card card_box">
+            <%= link_to k_dorama_path(k_dorama), class: "show_link" do %>
+              <%= image_tag k_dorama.image, class: "card-img w-100" %>
+            <% end %>
+            <div class="card-body">
+              <%= render "shared/review/review_star_average", k_dorama: k_dorama %>
+              <h5 class="card-title mt-2"><%= k_dorama.title %></h5>
+              <p class="card-text text-secondary"><%= k_dorama.introduction.truncate(20) %></p>
+              <%= link_to "詳細", k_dorama_path(k_dorama) %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <%= paginate @k_doramas,theme: 'bootstrap-5', class: "mt-4" %>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+
+<div class="page-top">
+	<header class="masthead">
+		<div class="container px-4 px-lg-5 h-100">
+			<div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+				<div class="col-lg-8 align-self-end">
+					<h1 class="text-white">自分に合った最高の一本を見つけよう!</h1>
+					<hr class="divider" />
+				</div>
+				<div class="mb-3">
+					<%= search_form_for @q, url: search_k_doramas_path do |f| %>
+						<%= f.search_field :title_or_genre_cont, placeholder: "キーワード検索", class: "form-control-lg" %>
+						<%= f.submit class: "form-control-lg  btn-primary" %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</header>
+	<section class="page-section bg-primary" id="about">
+		<div class="container px-4 px-lg-5">
+			<div class="row gx-4 gx-lg-5 justify-content-center">
+				<div class="col-lg-8 text-center">
+					<h2 class="text-warning mt-0">韓国ドラマに特化したレビューアプリ！</h2>
+					<hr class="divider divider" />
+					<div class="about_text text-white">
+						このアプリは韓国ドラマに特化したレビューアプリです！
+						韓国ドラマってめちゃくちゃ面白いけど、量がとても多い。
+						それに合う合わないが、とても激しくて見るものが決められない・・・そんなことを感じたことはないですか？
+						このアプリでは感想以外にも、そのドラマがどんな人におすすめか、またおすすめできないかも投稿できるようになっています。
+						そして途中で挫折してしまった人の意見もまとめています。
+						ぜひアプリを通じて最高の一本を見つけてください！
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div id="portfolio" class="page-section">
+		<div class="text-center text-success font-weight-bold">
+			<h1>ジャンル</h1>
+			<hr class="divider divider-light p-5">
+		</div>
+		<div class="container-fluid p-0">
+			<div class="row g-0">
+				<div class="col-lg-4 col-sm-6 genre_box">
+					<%= link_to search_k_doramas_path(@q, q: { genre_cont: "感動系"}), class: "portfolio-box", name: "impressed" do %>
+						<%= image_tag "k_dorama/kando.jpg" %>
+						<div class="portfolio-box-caption">
+							<div class="project-category text-white-50">感動系</div>
+						</div>
+					<% end %>
+				</div>
+				<div class="col-lg-4 col-sm-6 genre_box">
+					<%= link_to search_k_doramas_path(@q, q: { genre_cont: "アクション系" }), class: "portfolio-box", name: "action" do %>
+						<%= image_tag "k_dorama/action.jpg" %>
+						<div class="portfolio-box-caption">
+							<div class="project-category text-white-50">アクション系</div>
+						</div>
+					<% end %>
+				</div>
+				<div class="col-lg-4 col-sm-6 genre_box">
+					<%= link_to search_k_doramas_path(@q, q: { genre_cont: "ラブコメ系"}), class: "portfolio-box", name: "love_comedy" do %>
+						<%= image_tag "k_dorama/love_come.jpg" %>
+						<div class="portfolio-box-caption">
+							<div class="project-category text-white-50">ラブコメ系</div>
+						</div>
+					<% end %>
+				</div>
+				<div class="col-lg-4 col-sm-6 genre_box">
+					<%= link_to search_k_doramas_path(@q, q: { genre_cont: "時代劇系"}), class: "portfolio-box", name: "period_dorama" do %>
+						<%= image_tag "k_dorama/zidai.jpg" %>
+						<div class="portfolio-box-caption">
+							<div class="project-category text-white-50">時代劇系</div>
+						</div>
+					<% end %>
+				</div>
+				<div class="col-lg-4 col-sm-6 genre_box">
+					<%= link_to search_k_doramas_path(@q, q: { genre_cont: "サスペンス系"}), class: "portfolio-box", name: "suspense" do %>
+						<%= image_tag "k_dorama/suspense.jpg" %>
+						<div class="portfolio-box-caption">
+							<div class="project-category text-white-50">サスペンス系</div>
+						</div>
+					<% end %>
+				</div>
+				<div class="col-lg-4 col-sm-6 genre_box">
+					<%= link_to search_k_doramas_path(@q, q: { genre_cont: "復讐系"}), class: "portfolio-box", name: "revenge" do %>
+						<%= image_tag "k_dorama/revenge.jpg" %>
+						<div class="portfolio-box-caption">
+							<div class="project-category text-white-50">復讐系</div>
+						</div>
+					<% end %>
+				</div>
+		</div>
+	</div>
+</div>

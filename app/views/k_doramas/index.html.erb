@@ -1,0 +1,35 @@
+<div class="wrapp mt-5">
+  <div class="container mt-5">
+    <div class="row">
+      <% @k_doramas.each do |k_dorama| %>
+        <div class="col-6 col-lg-4 gy-5">
+          <div class="card">
+            <%= link_to k_dorama_path(k_dorama) do %>
+              <%= image_tag k_dorama.image, class: "card_img w-100" %>
+            <% end %>
+            <div class="card-body">
+              <% if k_dorama.reviews.present? %>
+                <div id="star-rate<%= k_dorama.id %>"></div>
+                <script>
+                  $('#star-rate<%= k_dorama.id %>').empty();
+                  $('#star-rate<%= k_dorama.id %>').raty({
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf: '<%= asset_path('star-half.png') %>',
+                    half: true,
+                    readOnly: true,
+                    score: <%= k_dorama.reviews.average(:evaluation).round(1) %>,
+                  });
+                </script>
+              <% end %>
+              <h5 class="card-title mt-2"><%= k_dorama.title %></h5>
+              <h6 class="cart-subtitle">あらすじ</h6>
+              <p class="card-text"><%= k_dorama.introduction.truncate(30) %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <%= paginate @k_doramas,theme: 'bootstrap-5', class: "mt-4" %>
+    </div>
+  </div>
+</div>

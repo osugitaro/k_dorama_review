@@ -1,0 +1,56 @@
+<div class="wrapp mt-5">
+  <div class="container mt-5">
+    <div class="row gx-5 gy-5 mb-5">
+      <div class="col-md-5">
+        <%= image_tag @k_dorama.image, class: "img-fluid" %>
+      </div>
+      <div class="col-md-6">
+        <h2><%= @k_dorama.title %></h2>
+        <%= render "shared/review/review_star_average", k_dorama: @k_dorama %>
+        <h4 class="mt-4">あらすじ</h4>
+        <p><%= @k_dorama.introduction %></p>
+        <%= link_to "レビューする", new_review_path(id: @k_dorama.id) %>
+        <% if admin_signed_in? %>
+          <%= link_to "編集する", edit_k_dorama_path(@k_dorama) %>
+        <% end %>
+      </div>
+    </div>
+    <ul class="nav nav-tabs" id="mytab" role="tablist">
+      <li class="nav-item">
+        <button class="nav-link active" id="impression-tab" data-bs-toggle="tab" data-bs-target="#impression" type="button" role="tab" aria-controls="impression" aria-selected="true">
+        感想一覧
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" id="recommendation-tab" data-bs-toggle="tab" data-bs-target="#recommendation" type="button" role="tab" aria-controls="recommendation" aria-selected="false">
+        このドラマがおすすめな人
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" id="not-recommendation-tab" data-bs-toggle="tab" data-bs-target="#not-recommendation" type="button" role="tab" aria-controls="not-recommendation" aria-selected="false">
+        このドラマをおすすめできない人
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" id="frustration-tab" data-bs-toggle="tab" data-bs-target="#frustration" type="button" role="tab" aria-controls="frustration" aria-selected="false">
+        途中でざせつしてしまった人の意見
+       </button>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="impression" role="tabpanel" aria-labelledy="impression-tab">
+        <%= render "shared/review/impression", reviews: @reviews %>
+      </div>
+      <div class="tab-pane fade" id="recommendation" role="tabpanel" aria-labelledy="recommendation-tab">
+        <%= render "shared/review/recommendation", reviews: @reviews %>
+      </div>
+      <div class="tab-pane fade" id="not-recommendation" role="tabpanel" aria-labelledy="not-recommendation-tab">
+        <%= render "shared/review/not_recommendation", reviews: @reviews %>
+      </div>
+      <div class="tab-pane fade" id="frustration" role="tabpanel" aria-labelledy="frustration-tab">
+        <%= render "shared/review/frustration", frustrations: @frustrations %>
+      </div>
+    </div>
+  <%= paginate @reviews, theme: 'bootstrap-5', class: "mt-4" %>
+  </div>
+</div>

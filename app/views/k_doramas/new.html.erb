@@ -1,0 +1,30 @@
+ <div class="wrapp mt-5">
+  <div class="container">
+    <%= form_with model: @k_dorama, class: "mt-5" do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+      <div>
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+
+      <div>
+        <%= f.label :introduction %>
+        <%= f.text_area :introduction, class: "form-control" %>
+      </div>
+
+      <div>
+        <%= f.label :image %>
+        <%= f.file_field :image, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :genre %>
+        <%= f.text_field :genre, class: "form-control" %>
+      </div>
+
+      <%= button_tag(type: "submit", class: "btn btn-primary btn-xl") do %>
+        投稿する
+      <% end %>
+    <% end %>
+  </div>
+</div>

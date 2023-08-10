@@ -1,0 +1,22 @@
+<% frustrations.reverse.each do |frustration| %>
+  <div class="mb-2">
+    <div class="review_box d-flex mt-2">
+      <div class="flex-shrink-0 avatar_review">
+        <% if frustration.user.image.present? %>
+          <%= image_tag frustration.user.image, class: "user_icon" %>
+        <% else %>
+          <%= image_tag 'user_icon.png', class: "user_icon" %>
+        <% end %>
+      </div>
+      <div class="flex-grow-1 ms-3">
+        <p><%= frustration.user.name %></p>
+        <p class="review_time"><%= frustration.created_at %></p>
+        <%= frustration.impression %>
+      </div>
+    </div>
+    <% if user_signed_in? && frustration.user.id == current_user.id %>
+      <%=link_to "編集する", edit_review_path(frustration.id), class: "ms-2" %>
+    <% end %>
+  <hr>
+  </div>
+<% end %>

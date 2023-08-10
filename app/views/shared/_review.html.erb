@@ -1,0 +1,34 @@
+<div class="d-flex border mt-2">
+  <div class="flex-shrink-0 avatar">
+    <% if review.user.image.present? %>
+      <%= image_tag review.user.image, class: "user_icon" %>
+    <% else %>
+      <%= image_tag 'user_icon.png', class: "user_icon" %>
+    <% end %>
+  </div>
+  <div class="flex-grow-1 ms-3">
+    <h3><%= review.user.name %></h3>
+    <div id="star-rate<%= review.id %>"></div>
+    <p><%= review.impression %></p>
+    <% if user_signed_in? %>
+      <% if review.user.id == current_user.id %>
+        <%=link_to "編集する", edit_review_path(review.id) %>
+      <% end %>
+    <% end %>
+    <div id="review_<%= review.id %>">
+      <%= render "shared/likes", review: review %>
+    </div>
+  </div>
+  <script>
+    $('#star-rate<%= review.id %>').empty();
+    $('#star-rate<%= review.id %>').raty({
+      size      : 30,
+      starOff   : '<%= asset_path('star-off.png') %>',
+      starOn    : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      half: true,
+      readOnly: true,
+      score: <%= review.evaluation %>,
+    });
+  </script>
+</div>

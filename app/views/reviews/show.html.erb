@@ -1,0 +1,62 @@
+<div class="wrapp mt-5">
+  <div class="container mt-5">
+    <div class="review_wrapp show_review_wrapp">
+      <div class="review_box d-flex mt-2">
+        <div class="flex-shrink-0 avatar_review">
+          <% if @review.user.image.present? %>
+            <%= image_tag @review.user.image, class: "user_icon" %>
+          <% else %>
+            <%= image_tag 'user_icon.png', class: "user_icon" %>
+          <% end %>
+        </div>
+        <div class="flex-grow-1 ms-3">
+          <p><%= @review.user.name %></p>
+          <p class="review_time"><%= @review.created_at %></p>
+          <div id="review_<%= @review.id %>">
+           <%= render "shared/review/review_star", review: @review %>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="review_impression"><%= @review.impression %></p>
+        <% if user_signed_in? %>
+          <% if @review.user.id == current_user.id %>
+            <%=link_to "編集する", edit_review_path(@review.id) %>
+          <% end %>
+        <% end %>
+        <div id="likes_<%= @review.id %>">
+          <%= render "shared/review/likes", review: @review %>
+        </div>
+      </div>
+    </div>
+    <h3 class="text-center my-5">コメント一覧</h3>
+    <% @comments.where(parent_id: nil).first(2).each do |comment| %>
+      <%= render "shared/hide_comments", comment: comment, comment_reply: @comment_reply, review: @review %>
+    <% end %>
+    <% if @comments.where(parent_id: nil).offset(2).any? %>
+       <button class="reply_btn mt-3" data-bs-toggle="collapse" data-bs-target="#more_comment" aria-expanded="false" aria-controls="more_comment" >
+       <i class="fa-solid fa-angles-right"></i>
+       もっと見る
+      </button>
+      <div class="collapse" id="more_comment">
+        <% @comments.where(parent_id: nil).offset(2).each do |comment| %>
+          <%= render "shared/hide_comments", comment: comment, comment_reply: @comment_reply, review: @review %>
+        <% end %>
+      </div>
+    <% end %>
+    <% if user_signed_in? %>
+      <div class="my-4">
+        <%= form_with model: [@review,@comment], url: review_comments_path(@review) do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+          <%= f.text_area :comment, class: "form-control", rows: "4" %>
+          <div class="mt-2">
+            <%= f.submit "コメントする", class: "btn btn-warning text-white" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <%= link_to k_dorama_path(@k_dorama), class: "ms-2 back_impression_index" do %>
+      <button class="btn btn-secondary">感想一覧に戻る</button>
+    <% end %>
+  </div>
+<div>

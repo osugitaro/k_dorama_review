@@ -1,0 +1,21 @@
+<div class="wrap pt-5" id="user_box">
+	<div class="container mt-3">
+		<div class="login-container">
+			<div class="avatar">
+				<% if @user.image.present? %>
+					<%= image_tag @user.image, class: "user_icon" %>
+				<% else %>
+					<%= image_tag 'user_icon.png', class: "user_icon" %>
+				<% end %>
+			</div>
+			<div class="form-box">
+				<h2><%= @user.name %></h2>
+				<p><%= @user.email %></p>
+				<% if @user.id == current_user.id %>
+					<%= link_to "編集する", edit_user_registration_path, class: "btn edit_btn" %>
+				<% end %>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>

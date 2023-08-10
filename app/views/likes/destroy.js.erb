@@ -1,0 +1,1 @@
+document.getElementById('likes_<%= @review.id %>').innerHTML = '<%= j(render "shared/review/likes", review: @review) %>'

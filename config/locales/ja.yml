@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    attributes:
+      models:
+      review:
+        impression: "感想"
+        evaluation: "星"
+      comment:
+        comment: "コメント"

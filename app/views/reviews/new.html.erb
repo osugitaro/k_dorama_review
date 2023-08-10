@@ -1,0 +1,53 @@
+<div class="wrapp mt-5">
+  <div class="container mt-5">
+    <h3><%= @k_dorama.title %></h3>
+    <%= form_with model: @review, class: "mt-3", method: :post do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+      <%= f.hidden_field :k_dorama_id, :value => @k_dorama.id %>
+      <%= f.hidden_field :user_id, :value => @user.id%>
+      <p>視聴状態<span class="ms-2 badge bg-danger">必須</span></p>
+      <div class="form-check form-check-inline mb-5">
+        <%= f.label :viewing_status, '全部見た！', class: "form-check-label", value: "saw_all" %>
+        <%= f.radio_button :viewing_status, "saw_all", class: "form-check-input", id: "see_all" %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= f.label :viewing_status, 'まだ途中', class: "form-check-label", value: "in_the_middle" %>
+        <%= f.radio_button :viewing_status, "in_the_middle", class: "form-check-input", id: "in_the_middle" %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= f.label :viewing_status, '挫折した・・・・', class: "form-check-label", value: "frustration" %>
+        <%= f.radio_button :viewing_status, "frustration", class: "form-check-input", id: "frustration" %>
+      </div>
+      <div class="mb-4">
+        <%= f.label :impression, "感想" %><span class="ms-2 badge bg-danger">必須</span>
+        <%= f.text_area :impression, class: "form-control", rows: "4"  %>
+      </div>
+      <div class="mb-4">
+        <%= f.label :recommendation, "#{@k_dorama.title}はこんな人におすすめ！" %>
+        <%= f.text_area :recommendation, class: "form-control", rows: "4" %>
+      </div>
+      <div class="mb-4">
+        <%= f.label :not_recommendation, "#{@k_dorama.title}はこんな人にはおすすめできない・・・" %>
+        <%= f.text_area :not_recommendation, class: "form-control", rows: "4" %>
+      </div>
+      <div class="form-group row" id="star">
+        <%= f.label :star,'総合評価 ', class:'col-md-3 col-form-label' %>
+        <%= f.hidden_field :star, id: :review_star %>
+      </div>
+      <div class="mb-3">
+        <%= f.submit "レビューする", class: "mt-3" %>
+      </div>
+    <% end %>
+
+    <script>
+      $('#star').empty();
+      $('#star').raty({
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        scoreName: 'review[evaluation]',
+        half: true,
+      });
+      </script>
+  </div>
+</div>

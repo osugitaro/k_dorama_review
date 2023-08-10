@@ -1,0 +1,40 @@
+<div>
+  <% @reviews.reverse.each do |review| %>
+    <% if review.present? %>
+      <div class="review_wrapp">
+        <div class="review_box d-flex mt-2">
+          <div class="flex-shrink-0 avatar_review">
+            <% if review.user.image.present? %>
+              <%= image_tag review.user.image, class: "user_icon" %>
+            <% else %>
+              <%= image_tag 'user_icon.png', class: "user_icon" %>
+            <% end %>
+          </div>
+          <div class="flex-grow-1 ms-3">
+            <%= link_to review_path(review.id), class: "review_name" do %>
+              <p><%= review.user.name %></p>
+            <% end %>
+            <p class="review_time"><%= review.created_at %></p>
+            <%= render "shared/review/review_star", review: review %>
+          </div>
+        </div>
+      </div>
+      <div class="mb-5">
+        <p class="review_impression"><%= review.impression %></p>
+        <hr>
+        <div class="d-flex">
+          <div id="likes_<%= review.id %>">
+            <%= render "shared/review/likes", review: review %>
+          </div>
+          <%= link_to review_path(review.id), class: "review_comments", name: "comment_link" do %>
+            <i class="fa-sharp fa-light fa-comment"></i>
+            <%= review.comments.count %>
+          <% end %>
+          <% if user_signed_in? && review.user.id == current_user.id %>
+            <%=link_to "編集する", edit_review_path(review.id), class: "ms-2" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

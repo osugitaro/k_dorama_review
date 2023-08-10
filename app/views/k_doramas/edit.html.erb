@@ -1,0 +1,32 @@
+ <div class="wrapp mt-5">
+  <div class="container">
+    <%= form_with model: @k_dorama, class: "mt-5" do |f| %>
+      <div class="mb-3">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :introduction %>
+        <%= f.text_area :introduction, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :image %>
+        <%= f.file_field :image, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :genre %>
+        <%= f.text_field :genre, class: "form-control" %>
+      </div>
+
+      <%= button_tag(type: "submit", class: "btn btn-primary btn-xl") do %>
+        編集する
+      <% end %>
+    <% end %>
+    <div class="mt-3">
+      <%= link_to "削除する", "/k_doramas/#{@k_dorama.id}", method: :delete, data: {confirm:"本当に削除しますか？"}  %>
+    </div>
+  </div>
+</div>
