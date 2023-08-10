@@ -49,7 +49,7 @@ RSpec
 このアプリを通じて効率よく自分に合ったドラマを見つけてもらいたいです。
 
 ### 使い方デモ
-上記はアプリのデモ動画です。
+下記はアプリのデモ動画です。
 ![k_dorama_demo](https://github.com/osugitaro/k_dorama_review/assets/118638450/9b7f5f3b-9eb4-4ecb-964b-29afd0bc48d7)
 
 
