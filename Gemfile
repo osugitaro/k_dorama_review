@@ -36,6 +36,8 @@ gem 'bootstrap5-kaminari-views'
 
 gem 'activestorage-validator'
 
+gem 'seed_dump'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
