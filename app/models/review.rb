@@ -9,6 +9,6 @@ class Review < ApplicationRecord
   validates :evaluation, numericality: {
     less_than_or_equal_to: 5,
     greater_than_or_equal_to: 1,
-    allow_blank: true
+    allow_blank: true,
   }, presence: true
 end

@@ -1,6 +1,7 @@
 Admin.create!([
   {email: "akio.rainbow@icloud.com", password: "kotaro0929"}
 ])
+
 User.create!([
   {email: "akio.rainbow@icloud.com", password: "tuwi0929",  name: "こた"},
   {email: "neko@gmail.com", password: "neko0929", name: "にゃんた"},
@@ -18,19 +19,6 @@ KDorama.create!([
   {title: "悪の花", introduction: "金属工芸家のペク・ヒソンは妻のジウォンと可愛い娘ウナに囲まれ、平凡であるが幸せな毎日を送っていた。ある日、成り行きでジウォンに知り合いの記者キム・ムジンを紹介される。ムジンは18年前の連続殺人犯の真相を追っている記者。偶然にも事件の犯人と同じ職業、金属工芸家であるヒソンに興味を持ち、工房へと訪れる。しかし、そこでヒソンの顔を見たムジンは事件の犯人の息子ト・ヒョンスではないかと疑い始める。\r\nそんな中、事件の情報を持つ男が殺される事件が発生。\r\n事件の担当になった妻のジウォンは事件を追う中、夫の不可解な行動に疑念を抱き始めてしまう。\r\n", genre: "サスペンス系"}
 ])
 
-ActiveStorage::Attachment.create!([
-  {name: "image", record_type: "KDorama", record_id: 4, blob_id: 9},
-  {name: "image", record_type: "KDorama", record_id: 5, blob_id: 12},
-  {name: "image", record_type: "KDorama", record_id: 6, blob_id: 14},
-  {name: "image", record_type: "KDorama", record_id: 7, blob_id: 16},
-  {name: "image", record_type: "KDorama", record_id: 8, blob_id: 17},
-  {name: "image", record_type: "KDorama", record_id: 9, blob_id: 18},
-  {name: "image", record_type: "User", record_id: 37, blob_id: 19},
-  {name: "image", record_type: "User", record_id: 38, blob_id: 20},
-  {name: "image", record_type: "User", record_id: 39, blob_id: 21},
-  {name: "image", record_type: "User", record_id: 40, blob_id: 22}
-])
-
 Review.create!([
   {k_dorama_id: 7, user: nil, references: nil, impression: "自分は1話で挫折してしまいました。\r\n雰囲気が重いのと、あまり面白くなりそうにないなと思ったからです。", user_id: "38", evaluation: 2.0, recommendation: "暗い話でも良いよって方にはおすすめかもしれません。\r\nあと他の作品と違ったIUちゃんが見れるので、IUちゃんのファンにはおすすめです。", not_recommendation: "重い雰囲気のドラマが好きではない方。\r\nあと自分は1話しか見ていませんが、このドラマ最初から面白い話ではないと思います。\r\nなので最初から面白いドラマが良い人には向いていないかもしれません。", viewing_status: "frustration"},
   {k_dorama_id: 7, user: nil, references: nil, impression: "感動しました！\r\nですが、個人的によく分かりづらいとこも沢山あり。。。\r\nもうちょっと分かりやすいと良かったかなと思います。", user_id: "39", evaluation: 4.0, recommendation: "感動したい作品を探している人にはおすすめです。\r\nあとIUが可愛いのもあったんですが、個人的におじさん役のイ・ソンギュン\r\nの声がイケボすぎて・・・\r\n今よく言われているイケおじが見たいならおすすかもしれません！", not_recommendation: "よく言われていることですが最初はつまらないです・・・\r\nなので前半は我慢が必要です。\r\nあと結構比喩表現？みたいなものも使うので、心情が分かりづらくて\r\nこれどういうこと？ってことが私は多々ありました。\r\nそういうのが嫌いな人は向いていないかもです。", viewing_status: "saw_all"}
@@ -46,19 +34,4 @@ Like.create!([
 
 Comment.create!([
   {comment: "どこが分かりづらかったですか？", user_id: 37, review_id: 3, parent_id: nil}
-])
-
-ActiveStorage::Blob.create!([
-  {key: "t4crif4alcbxdqlxqrd3imbbxeqz", filename: "635d1b4a239e2841c5a9557cd1fa4150.jpeg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, service_name: "local", byte_size: 37988, checksum: "KXnOhAmJGOPePcaZ0G5WCw=="},
-  {key: "0cd1gskiu14wssdm19dtjdxy3i0j", filename: "イテオンクラス.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, service_name: "local", byte_size: 199855, checksum: "CopVWp4t6wNSbqHgvRTftw=="},
-  {key: "dm2wah9bfl4c2sonxkd3t4ayt0a7", filename: "79439243-8551-4930-BCAA-167ABA26FA7B_4_5005_c.jpeg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, service_name: "local", byte_size: 78453, checksum: "F1OG0RaQO8QE6BjxWCnkKw=="},
-  {key: "6435w2gxkum2rwkyhmdu3i4mjmom", filename: "UNaPGljtCDwf3pg1687277996_1687278023.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, service_name: "local", byte_size: 33319, checksum: "TRmZfgLu8w2rKjN8VxxDqQ=="},
-  {key: "i23v8fjxvqnwyja10aky5a6kpkyy", filename: "W3wuA2k5yesyxZa1687278485_1687278491.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, service_name: "local", byte_size: 134729, checksum: "tXq9sjEGBQxd8WG6BFNVcg=="},
-  {key: "g6vtksgeqaklfoper4ayluipyhc2", filename: "41Fuq4-hePL._SL500_.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, service_name: "local", byte_size: 23917, checksum: "q/bpLd2FAa1rIBFFn+mMtQ=="},
-  {key: "rnuuq4o9atxbnam1nowzaehetwpm", filename: "71MGSegPmaL._AC_SL1087_.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, service_name: "local", byte_size: 129743, checksum: "0jXxUiuZgCwQIqmumUtFUw=="},
-  {key: "9f97q0g39xx3k85rf4m53ydbck9v", filename: "akunohana-main.jpeg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, service_name: "local", byte_size: 80435, checksum: "xrdE3K7/UIrB20WvKeZ4IA=="},
-  {key: "o98a0lxccsv1tqo8qvrgvjg436j8", filename: "豆腐さん-1-1024x1024.png", content_type: "image/png", metadata: {"identified"=>true, "analyzed"=>true}, service_name: "local", byte_size: 76428, checksum: "nNSbbXz6o/PJ1XNJ+dPegA=="},
-  {key: "ynziojr0vdd0peap9bjlerxg3hbg", filename: "1007193009_5bb9e03185cb4.jpeg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, service_name: "local", byte_size: 371854, checksum: "NwehEPIWc2syAgjRLiOUng=="},
-  {key: "qo4s0az5ukjue8cmjz3mkbluxqj7", filename: "アイコン05.png", content_type: "image/png", metadata: {"identified"=>true, "analyzed"=>true}, service_name: "local", byte_size: 227143, checksum: "qgc7hnkp4xPvrspRZK8YZw=="},
-  {key: "bibkekkih8unl853kit5n1n7bz6l", filename: "face_smile_man2.png", content_type: "image/png", metadata: {"identified"=>true, "analyzed"=>true}, service_name: "local", byte_size: 217394, checksum: "D6MgwF6FfmVEkqV5PBnw/A=="}
 ])

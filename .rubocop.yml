@@ -7,6 +7,15 @@ Rails:
 LineLength:
   Max: 130
 
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
 AllCops:
   Exclude:
     - 'db/**/*'
