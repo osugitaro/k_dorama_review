@@ -2,7 +2,11 @@
   <div class="container mt-5">
     <div class="row gx-5 gy-5 mb-5">
       <div class="col-md-5">
-        <%= image_tag @k_dorama.image, class: "img-fluid" %>
+        <% if @k_dorama.image.present? %>
+          <%= image_tag @k_dorama.image, class: "img-fluid" %>
+        <% else %>
+          <%= image_tag 'k_dorama/noimage.jpg', class: "img-fluid" %>
+        <% end %>
       </div>
       <div class="col-md-6">
         <h2><%= @k_dorama.title %></h2>

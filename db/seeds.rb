@@ -20,18 +20,17 @@ KDorama.create!([
 ])
 
 Review.create!([
-  {k_dorama_id: 7, user: nil, references: nil, impression: "自分は1話で挫折してしまいました。\r\n雰囲気が重いのと、あまり面白くなりそうにないなと思ったからです。", user_id: "38", evaluation: 2.0, recommendation: "暗い話でも良いよって方にはおすすめかもしれません。\r\nあと他の作品と違ったIUちゃんが見れるので、IUちゃんのファンにはおすすめです。", not_recommendation: "重い雰囲気のドラマが好きではない方。\r\nあと自分は1話しか見ていませんが、このドラマ最初から面白い話ではないと思います。\r\nなので最初から面白いドラマが良い人には向いていないかもしれません。", viewing_status: "frustration"},
-  {k_dorama_id: 7, user: nil, references: nil, impression: "感動しました！\r\nですが、個人的によく分かりづらいとこも沢山あり。。。\r\nもうちょっと分かりやすいと良かったかなと思います。", user_id: "39", evaluation: 4.0, recommendation: "感動したい作品を探している人にはおすすめです。\r\nあとIUが可愛いのもあったんですが、個人的におじさん役のイ・ソンギュン\r\nの声がイケボすぎて・・・\r\n今よく言われているイケおじが見たいならおすすかもしれません！", not_recommendation: "よく言われていることですが最初はつまらないです・・・\r\nなので前半は我慢が必要です。\r\nあと結構比喩表現？みたいなものも使うので、心情が分かりづらくて\r\nこれどういうこと？ってことが私は多々ありました。\r\nそういうのが嫌いな人は向いていないかもです。", viewing_status: "saw_all"}
+  {k_dorama_id: 4, user: nil, references: nil, impression: "自分は1話で挫折してしまいました。\r\n雰囲気が重いのと、あまり面白くなりそうにないなと思ったからです。", user_id: "1", evaluation: 2.0, recommendation: "暗い話でも良いよって方にはおすすめかもしれません。\r\nあと他の作品と違ったIUちゃんが見れるので、IUちゃんのファンにはおすすめです。", not_recommendation: "重い雰囲気のドラマが好きではない方。\r\nあと自分は1話しか見ていませんが、このドラマ最初から面白い話ではないと思います。\r\nなので最初から面白いドラマが良い人には向いていないかもしれません。", viewing_status: "frustration"},
+  {k_dorama_id: 4, user: nil, references: nil, impression: "感動しました！\r\nですが、個人的によく分かりづらいとこも沢山あり。。。\r\nもうちょっと分かりやすいと良かったかなと思います。", user_id: "8", evaluation: 4.0, recommendation: "感動したい作品を探している人にはおすすめです。\r\nあとIUが可愛いのもあったんですが、個人的におじさん役のイ・ソンギュン\r\nの声がイケボすぎて・・・\r\n今よく言われているイケおじが見たいならおすすかもしれません！", not_recommendation: "よく言われていることですが最初はつまらないです・・・\r\nなので前半は我慢が必要です。\r\nあと結構比喩表現？みたいなものも使うので、心情が分かりづらくて\r\nこれどういうこと？ってことが私は多々ありました。\r\nそういうのが嫌いな人は向いていないかもです。", viewing_status: "saw_all"}
 ])
 
 Like.create!([
-  {user_id: 39, review_id: 2},
-  {user_id: 39, review_id: 3},
-  {user_id: 37, review_id: 2},
-  {user_id: 41, review_id: 2},
-  {user_id: 37, review_id: 3}
+  {user_id: 3, review_id: 1},
+  {user_id: 3, review_id: 2},
+  {user_id: 1, review_id: 1},
+  {user_id: 1, review_id: 2}
 ])
 
 Comment.create!([
-  {comment: "どこが分かりづらかったですか？", user_id: 37, review_id: 3, parent_id: nil}
+  {comment: "どこが分かりづらかったですか？", user_id: 1, review_id: 2, parent_id: nil}
 ])

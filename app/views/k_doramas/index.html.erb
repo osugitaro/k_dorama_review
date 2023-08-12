@@ -5,7 +5,11 @@
         <div class="col-6 col-lg-4 gy-5">
           <div class="card">
             <%= link_to k_dorama_path(k_dorama) do %>
-              <%= image_tag k_dorama.image, class: "card_img w-100" %>
+              <% if k_dorama.image.present? %>
+                <%= image_tag k_dorama.image, class: "card_img w-100" %>
+              <% else %>
+                <%= image_tag 'k_dorama/noimage.jpg', class: "card_img w-100" %>
+              <% end %>
             <% end %>
             <div class="card-body">
               <% if k_dorama.reviews.present? %>
