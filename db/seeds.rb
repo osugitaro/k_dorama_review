@@ -1,13 +1,12 @@
 Admin.create!([
-  {email: "akio.rainbow@icloud.com", encrypted_password: "$2a$12$eE/TDK9uSgaV9XYxUAYtQ.AUN6LQef/yDXqY4CDJAwYlMtXoiBpRe", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil}
+  {email: "akio.rainbow@icloud.com", password: "kotaro0929",}
 ])
 User.create!([
-  {email: "akio.rainbow@icloud.com", encrypted_password: "$2a$12$dY80SJKYa7/tvNveNRlc3.aNfyykZoPmtnQIG6M7A2KkeLYGQEJd6", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, name: "こた"},
-  {email: "neko@gmail.com", encrypted_password: "$2a$12$q4pbPSvC2Xh8tq4fu2pJEe/2BcM.vL/LNMJz.t.JqHwIZmYmIgksC", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, name: "にゃんた"},
-  {email: "nana@gmail.com", encrypted_password: "$2a$12$wIBkh1jz5GY6r.Br9ehUzOhmzOa6AHhObBIYiQiLhB.U3surYOz.G", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, name: "なな子"},
-  {email: "gonda@icloud.com", encrypted_password: "$2a$12$2d1CHOckkt12z.kOO3RqZeeg5d2Ei5jaMbz04StuGqD1GHW9xhh/O", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, name: "マイケル"},
-  {email: "guest@example.com", encrypted_password: "$2a$12$QEvoKzqojWU3jZaSzOWAEeOFmc2RLzi9s4wedCqKVtlhCeuIdNgpy", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, name: "guest"},
-  {email: "seroi@gmail.com", encrypted_password: "$2a$12$W350OvQsz9APwYAUss5dcONQAS5mlazkPFvyx4xY4SEYm8A9B0kQu", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, name: "serori"}
+  {email: "akio.rainbow@icloud.com", password: "tuwi0929",  name: "こた"},
+  {email: "neko@gmail.com", password: "neko0929", name: "にゃんた"},
+  {email: "nana@gmail.com", password: "nana0929",  name: "なな子"},
+  {email: "gonda@icloud.com", password: "gonda0929",  name: "マイケル"},
+  {email: "seroi@gmail.com", password: "seroi0929", name: "serori"}
 ])
 Comment.create!([
   {comment: "どこが分かりづらかったですか？", user_id: 37, review_id: 3, parent_id: nil}
