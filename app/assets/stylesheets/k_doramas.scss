@@ -36,3 +36,36 @@
 #search_box{
   background-color: #ffd4b1;
 }
+
+/* シェアボタン */
+.sns_share{
+  max-width: 400px;
+}
+
+.sns-btn{
+  width: 25%;
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none;
+}
+
+.fb {
+  background-color: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background-color: #55ACEE;
+  color: white;
+}
+
+.line {
+  background-color: #00B900;
+  color: white;
+}

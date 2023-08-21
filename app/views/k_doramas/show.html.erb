@@ -1,3 +1,4 @@
+<% set_meta_tags title: @page_title, og: { title: @page_title, image: image_url('review/review.png')} %>
 <div class="wrapp mt-5">
   <div class="container mt-5">
     <div class="row gx-5 gy-5 mb-5">
@@ -14,6 +15,7 @@
         <h4 class="mt-4">あらすじ</h4>
         <p><%= @k_dorama.introduction %></p>
         <%= link_to "レビューする", new_review_path(id: @k_dorama.id) %>
+        <%= render "shared/share_sns" %>
         <% if admin_signed_in? %>
           <%= link_to "編集する", edit_k_dorama_path(@k_dorama) %>
         <% end %>

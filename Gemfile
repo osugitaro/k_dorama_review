@@ -38,6 +38,8 @@ gem 'activestorage-validator'
 
 gem 'seed_dump'
 
+gem 'meta-tags'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

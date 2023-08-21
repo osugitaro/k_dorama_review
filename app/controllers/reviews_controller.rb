@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
     @comments = @review.comments.order(created_at: :desc)
     @comment = Comment.new
     @comment_reply = @review.comments.new
+    @page_title = "k_dorama_review | 「#{@k_dorama.title}」 #{@review.user.name}のレビュー"
   end
 
   def new

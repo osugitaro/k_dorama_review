@@ -53,6 +53,7 @@ class KDoramasController < ApplicationController
 
   def show
     @k_dorama = KDorama.find(params[:id])
+    @page_title = "#{@k_dorama.title} レビュー"
     @frustrations = Review.where(viewing_status: "frustration")
     @reviews = @k_dorama.reviews.page(params[:page]).per(6)
   end

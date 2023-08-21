@@ -1,3 +1,4 @@
+<% set_meta_tags title: @page_title, og: { title: @page_title, image: image_url('review/review.png')} %>
 <div class="wrapp mt-5">
   <div class="container mt-5">
     <div class="review_wrapp show_review_wrapp">
@@ -29,6 +30,7 @@
         </div>
       </div>
     </div>
+    <%= render "shared/share_sns" %>
     <h3 class="text-center my-5">コメント一覧</h3>
     <% @comments.where(parent_id: nil).first(2).each do |comment| %>
       <%= render "shared/hide_comments", comment: comment, comment_reply: @comment_reply, review: @review %>

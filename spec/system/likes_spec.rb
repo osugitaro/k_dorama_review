@@ -23,12 +23,14 @@ RSpec.describe Like, type: :system do
         login(like.user)
         visit k_dorama_path(like.review.k_dorama)
         find("#likes_#{like.review.id}").click
-        find'.like_link'
+        find '.like_link'
+        sleep 0.5
       end
       it 'いいねボタンが押されるとハートが赤になること' do
         find("#likes_#{like.review.id}").click
         expect(page).to have_selector '.like-btn'
       end
+
       it 'いいねボタンを押すとカウントが1増えること' do
         expect {
           find("#likes_#{like.review.id}").click

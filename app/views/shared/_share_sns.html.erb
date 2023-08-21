@@ -1,0 +1,17 @@
+<div class="sns_share mt-4">
+  <%= link_to "https://twitter.com/share?url=#{request.url}/&text=#{@k_dorama.title}レビュー", rel: "nofollow noopener", title: 'Twitter', target: '_blank', class: "text-decoration-none" do %>
+    <button class="twitter sns-btn">
+      <i class="fab fa-twitter"></i>
+    </button>
+  <% end %>
+  <%= link_to "http://www.facebook.com/share.php?u=#{request.url}", rel: "nofollow noopener", title: "facebook", target: "_blank", class: "text-decoration-none" do %>
+    <button class="fb sns-btn ms-2">
+      <i class="fa-brands fa-facebook-f"></i>
+    </button>
+  <% end %>
+  <%= link_to "https://timeline.line.me/social-plugin/share?url=#{request.url}/&text=#{@k_dorama.title}レビュー", target: "_blank", rel: "nofollow noopener noreferrer" do %>
+    <button class="line sns-btn ms-2">
+      <i class="fa-brands fa-line"></i>
+    </button>
+  <% end %>
+</div>

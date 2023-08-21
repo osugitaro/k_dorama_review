@@ -156,6 +156,8 @@ GEM
       net-smtp
     marcel (1.0.2)
     matrix (0.4.2)
+    meta-tags (2.18.0)
+      actionpack (>= 3.2.0, < 7.1)
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.18.1)
@@ -372,6 +374,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   listen (~> 3.3)
+  meta-tags
   pg
   pry-rails
   puma (~> 5.0)
