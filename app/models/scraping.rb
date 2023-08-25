@@ -5,7 +5,7 @@ class Scraping
     agent = Mechanize.new
     links = []
 
-    current_page = agent.get("https://www.konest.com/contents/drama_list.html?drama_syear=0&cp=2&genre=mystery")
+    current_page = agent.get("https://www.konest.com/contents/drama_list.html?drama_syear=0&cp=2&q=%E3%83%A9%E3%83%96%E3%82%B3%E3%83%A1")
     elements = current_page.search('td span a')
     elements.each do |ele|
       links << ele.get_attribute('href')
@@ -32,13 +32,13 @@ class Scraping
     end
     introduction = page.at('/html/body/div[2]/div/div/div[1]/table[2]/tr[2]/td/span').inner_text if page.at('/html/body/div[2]/div/div/div[1]/table[2]/tr[2]/td/span')
     image = page.at("/html/body/div[2]/div/div/div[1]/table[3]/tr/td/table/tr/td/img")[:src] if page.at("/html/body/div[2]/div/div/div[1]/table[3]/tr/td/table/tr/td/img")[:src]
-    page.image_with(:src => image).fetch.save("app/assets/images/k_dorama/suspense/#{id}.jpg")
+    page.image_with(:src => image).fetch.save("app/assets/images/k_dorama/love_comedy/#{id}.jpg")
 
     k_dorama = KDorama.where(title: title).first_or_initialize
     k_dorama.cast = cast
-    k_dorama.genre = genre
+    k_dorama.genre = "ラブコメ"
     k_dorama.introduction = introduction
-    k_dorama.image.attach(io: File.open(Rails.root.join("app/assets/images/k_dorama/suspense/#{id}.jpg")), filename: "#{id}.jpg", content_type: 'image/jpg')
+    k_dorama.image.attach(io: File.open(Rails.root.join("app/assets/images/k_dorama/love_comedy/#{id}.jpg")), filename: "#{id}.jpg", content_type: 'image/jpg')
     k_dorama.save
   end
 end
