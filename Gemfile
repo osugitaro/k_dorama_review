@@ -66,6 +66,7 @@ group :development do
   gem 'spring'
   gem 'rubocop-airbnb'
   gem 'rails-erd'
+  gem 'mechanize'
 end
 
 
