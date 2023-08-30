@@ -15,4 +15,9 @@ class KDorama < ApplicationRecord
   def self.ransackable_associations(auth_object = nil)
     []
   end
+
+  def update_rate_average
+    reviews_average = reviews.average(:evaluation)
+    update(rate_average: reviews_average)
+  end
 end
