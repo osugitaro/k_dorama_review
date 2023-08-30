@@ -1,27 +1,35 @@
- <% set_meta_tags title: "search" %>
- <div class="wrapp" id="search_box">
+<% set_meta_tags title: "search" %>
+<div class="wrapp" id="search_box">
   <div class="container mt-5 ">
-    <div class="row">
-      <% @k_doramas.each do |k_dorama| %>
-        <div class="col-6 col-lg-4 gy-5">
-          <div class="card card_box">
-            <%= link_to k_dorama_path(k_dorama), class: "show_link" do %>
-              <% if k_dorama.image.present? %>
-                <%= image_tag k_dorama.image, class: "card-img w-100" %>
-              <% else %>
-                <%= image_tag 'k_dorama/noimage.jpg', class: "card-img w-100" %>
-              <% end %>
-            <% end %>
-            <div class="card-body">
-              <%= render "shared/review/review_star_average", k_dorama: k_dorama %>
-              <h5 class="card-title mt-2"><%= k_dorama.title %></h5>
-              <p class="card-text text-secondary"><%= k_dorama.introduction.truncate(20) %></p>
-              <%= link_to "詳細", k_dorama_path(k_dorama) %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+    <div class="pt-5">
+      <ul class="nav nav-tabs mt-5" id="mytab" role="tablist">
+        <li class="nav-item">
+          <button class="nav-link active" id="evaluation-order-tab" data-bs-toggle="tab" data-bs-target="#evaluation-order" type="button" role="tab" aria-controls="evaluation-order" aria-selected="true">
+            評価順
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" id="rate5-tab" data-bs-toggle="tab" data-bs-target="#rate5" type="button" role="tab" aria-controls="rate5" aria-selected="false">
+            星5のドラマ
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" id="taller-than4-tab" data-bs-toggle="tab" data-bs-target="#taller-than4" type="button" role="tab" aria-controls="taller-than4" aria-selected="false">
+            星4以上のドラマ
+          </button>
+        </li>
+      </ul>
     </div>
-    <%= paginate @k_doramas,theme: 'bootstrap-5', class: "mt-4" %>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="evaluation-order" role="tabpanel" aria-labelledy="evaluation-order-tab">
+        <%= render "shared/k_doramas/evaluation_order", k_doramas: @k_doramas_rate %>
+      </div>
+      <div class="tab-pane fade" id="rate5" role="tabpanel" aria-labelledy="rate5-tab">
+        <%= render "shared/k_doramas/rate5", k_doramas: @rate5 %>
+      </div>
+      <div class="tab-pane fade" id="taller-than4" role="tabpanel" aria-labelledy="taller-than4-tab">
+        <%= render "shared/k_doramas/taller_than4", k_doramas: @taller_than4 %>
+      </div>
+    </div>
   </div>
 </div>

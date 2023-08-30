@@ -1,0 +1,35 @@
+<div class="row">
+  <% k_doramas.each do |k_dorama| %>
+    <div class="col-6 col-lg-4 gy-5">
+      <div class="card card_box">
+        <%= link_to k_dorama_path(k_dorama), class: "show_link" do %>
+          <% if k_dorama.image.present? %>
+            <%= image_tag k_dorama.image, class: "card-img w-100" %>
+          <% else %>
+            <%= image_tag 'k_dorama/noimage.jpg', class: "card-img w-100" %>
+          <% end %>
+        <% end %>
+        <div class="card-body">
+          <% if k_dorama.reviews.present? %>
+            <div id="rate4over-<%= k_dorama.id %>"></div>
+            <script>
+              $('#rate4over-<%= k_dorama.id %>').empty();
+              $('#rate4over-<%= k_dorama.id %>').raty({
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                half: true,
+                readOnly: true,
+                score: <%= k_dorama.reviews.average(:evaluation).round(1) %>,
+              });
+            </script>
+          <% end %>
+          <h5 class="card-title mt-2"><%= k_dorama.title %></h5>
+          <p class="card-text text-secondary"><%= k_dorama.introduction.truncate(20) %></p>
+          <%= link_to "詳細", k_dorama_path(k_dorama) %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= paginate k_doramas,theme: 'bootstrap-5', class: "mt-4" %>
