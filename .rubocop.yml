@@ -28,3 +28,4 @@ AllCops:
     - '.git/**/*'
     - 'spec/**/*'
     - 'app/models/k_dorama.rb'
+    - 'app/models/scraping.rb'
