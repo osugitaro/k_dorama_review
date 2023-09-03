@@ -2,7 +2,7 @@
   <% k_doramas.each do |k_dorama| %>
     <div class="col-6 col-lg-4 gy-5">
       <div class="card card_box">
-        <%= link_to k_dorama_path(k_dorama), class: "show_link" do %>
+        <%= link_to k_dorama_path(k_dorama), class: "show_link", id: "img_#{k_dorama.title}" do %>
           <% if k_dorama.image.present? %>
             <%= image_tag k_dorama.image, class: "card-img w-100" %>
           <% else %>
@@ -13,7 +13,7 @@
           <%= render "shared/review/review_star_average", k_dorama: k_dorama %>
           <h5 class="card-title mt-2"><%= k_dorama.title %></h5>
           <p class="card-text text-secondary"><%= k_dorama.introduction.truncate(20) %></p>
-          <%= link_to "詳細", k_dorama_path(k_dorama) %>
+          <%= link_to "詳細", k_dorama_path(k_dorama), id: "show_#{k_dorama.title}" %>
         </div>
       </div>
     </div>
