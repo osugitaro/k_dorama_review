@@ -4,7 +4,6 @@ class KDorama < ApplicationRecord
   with_options presence: true do
     validates :title
     validates :introduction
-    #validates :image
     validates :genre
   end
 
