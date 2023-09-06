@@ -2,24 +2,44 @@ require 'rails_helper'
 RSpec.describe KDorama, type: :system do
   let!(:k_dorama) { create(:k_dorama,) }
   let!(:k_dorama2) { create(:k_dorama, :k_dorama2) }
-  let!(:k_dorama3) { create(:k_dorama, title: 'test1', rate_average: 5.0) }
-  let!(:k_dorama4) { create(:k_dorama, title: 'test2', rate_average: 3.0) }
+  let!(:k_dorama3) { create(:k_dorama, title: 'test1', cast: "cast1", rate_average: 5.0) }
+  let!(:k_dorama4) { create(:k_dorama, title: 'test2', cast: "cast2", rate_average: 3.0) }
   let(:card_body) { page.all(".card-body") }
   describe 'トップページ' do
-    context "キーワード検索" do
-      it "検索欄にタイトルの一部が入っていれば関連するドラマが表示されること" do
+    context "タイトルで検索" do
+      before do
         visit root_path
-        fill_in 'キーワード検索', with: '梨泰院'
+        fill_in 'タイトルで検索', with: '梨泰院'
         click_on '検索'
+      end
+
+      it "タイトル検索欄にタイトルの一部が入っていれば関連するドラマが表示されること" do
         expect(current_path).to eq search_k_doramas_path
         expect(page).to have_content(k_dorama.title)
       end
-      it "検索欄にジャンルの一部が入っていれば関連するドラマが表示されること" do
+
+      it "関連のないドラマは表示されないこと" do
+        expect(page).to have_no_content(k_dorama2.title)
+        expect(page).to have_no_content(k_dorama3.title)
+        expect(page).to have_no_content(k_dorama4.title)
+      end
+    end
+
+    context "キャストで検索" do
+      before do
         visit root_path
-        fill_in 'キーワード検索', with: '復'
+        fill_in 'キャストで検索', with: 'パク'
         click_on '検索'
+      end
+      it "キャスト検索欄にキャストの一部が入っていれば関連するドラマが表示されること" do
         expect(current_path).to eq search_k_doramas_path
         expect(page).to have_content(k_dorama.title)
+      end
+
+      it "関連のないドラマは表示されないこと" do
+        expect(page).to have_no_content(k_dorama2.title)
+        expect(page).to have_no_content(k_dorama3.title)
+        expect(page).to have_no_content(k_dorama4.title)
       end
     end
 

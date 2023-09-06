@@ -38,7 +38,6 @@ RSpec.configure do |config|
   config.include ControllerMacros
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
-  Webdrivers::Chromedriver.required_version = '114.0.5735.90'
 
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
