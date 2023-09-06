@@ -14,6 +14,8 @@
         <%= render "shared/review/review_star_average", k_dorama: @k_dorama %>
         <h4 class="mt-4">あらすじ</h4>
         <p><%= @k_dorama.introduction %></p>
+        <h5>キャスト</h5>
+        <p><%= @k_dorama.cast %></p>
         <%= link_to "レビューする", new_review_path(id: @k_dorama.id) %>
         <%= render "shared/share_sns" %>
         <% if admin_signed_in? %>

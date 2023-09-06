@@ -7,10 +7,17 @@
 					<h1 class="text-white">自分に合った最高の一本を見つけよう!</h1>
 					<hr class="divider" />
 				</div>
-				<div class="mb-3">
-					<%= search_form_for @q, url: search_k_doramas_path do |f| %>
-						<%= f.search_field :title_or_genre_cont, placeholder: "キーワード検索", class: "form-control-lg" %>
-						<%= f.submit class: "form-control-lg  btn-primary" %>
+				<div class=" mb-3">
+					<%= search_form_for @q, url: search_k_doramas_path, class: "row justify-content-center" do |f| %>
+						<div class="mb-3 col-md-auto">
+							<%= f.search_field :title_cont, placeholder: "タイトルで検索", class: "form-control-lg" %>
+						</div>
+						<div class="mb-3 col-md-auto">
+							<%= f.search_field :cast_cont, placeholder: "キャストで検索", class: "form-control-lg" %>
+						</div>
+						<div class="col-md-auto">
+							<%= f.submit class: "form-control-lg  btn-primary" %>
+						</div>
 					<% end %>
 				</div>
 			</div>
