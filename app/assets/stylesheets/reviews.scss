@@ -5,6 +5,10 @@
   width: auto;
 }
 
+.r-nav-color {
+  background-color: #84C98B !important;
+}
+
 .review_box {
   padding: 10px 0px 0px 10px;
 }
@@ -12,7 +16,6 @@
 .review_box p{
   margin: 0;
 }
-/*レビューのアバター */
 
 .avatar_review {
   width: 45px;
@@ -71,7 +74,6 @@
   object-fit: cover;
 }
 
-/*レビューボタン*/
 .reply_btn{
   border: none;
   background: transparent;
