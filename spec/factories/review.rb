@@ -10,7 +10,6 @@ FactoryBot.define do
 
     trait :review2 do
       association :user, :user2
-      association :k_dorama
       impression {" つまらなかった" }
       recommendation { "仲間とか好きな人" }
       not_recommendation { "反ミーハーな人" }

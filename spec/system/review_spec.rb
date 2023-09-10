@@ -19,7 +19,7 @@ RSpec.describe Review, type: :system do
           expect(page).to have_selector(".active", text: review.created_at)
         end
       end
-      context 'このドラマがおすすめ人', js: true do
+      context 'このドラマがおすすめな人', js: true do
         before do
           visit k_dorama_path(review.k_dorama)
           click_on "このドラマがおすすめな人"
@@ -51,7 +51,7 @@ RSpec.describe Review, type: :system do
       end
       context '途中ざせつしてしまった人の意見', js: true do
         before do
-          visit k_dorama_path(review.k_dorama)
+          visit k_dorama_path(review2.k_dorama)
           click_on "途中でざせつしてしまった人の意見"
         end
         it '途中で挫折してしまった人の意見が表示されること' do
@@ -145,6 +145,5 @@ RSpec.describe Review, type: :system do
         end
       end
     end
-
   end
 end
