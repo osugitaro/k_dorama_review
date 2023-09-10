@@ -12,7 +12,15 @@
         <div class="flex-grow-1 ms-3">
           <p><%= review.user.name %></p>
           <p class="review_time"><%= review.created_at %></p>
-          <%= review.not_recommendation %>
+            <div id="tc_<%= review.id %>">
+              <%= truncate(review.not_recommendation, length:100) do %>
+                <%= link_to "続きを読む", '#', remote: true, onclick: "SeeMore('tc_#{review.id}', 'untc_#{review.id}')" %>
+              <% end %>
+            </div>
+            <div class="hide" id="untc_<%= review.id %>">
+              <p><%= review.not_recommendation %></p>
+              <%= link_to "元に戻す", '#', remote: true, onclick: "SeeReverse('tc_#{review.id}', 'untc_#{review.id}')" %>
+            </div>
         </div>
       </div>
       <% if user_signed_in? && review.user.id == current_user.id %>
@@ -22,3 +30,18 @@
     </div>
   <% end %>
 <% end %>
+<script>
+  function SeeMore(truncate, untruncated) {
+    const tc = document.getElementById(truncate);
+    const untc = document.getElementById(untruncated);
+    tc.classList.toggle('hide');
+    untc.classList.toggle('hide');
+  }
+
+  function SeeReverse(truncate, untruncated) {
+    const tc = document.getElementById(truncate);
+    const untc = document.getElementById(untruncated);
+    tc.classList.toggle('hide');
+    untc.classList.toggle('hide');
+  }
+</script>

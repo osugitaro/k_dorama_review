@@ -1,22 +1,31 @@
-<% frustrations.reverse.each do |frustration| %>
-  <div class="mb-2">
-    <div class="review_box d-flex mt-2">
-      <div class="flex-shrink-0 avatar_review">
-        <% if frustration.user.image.present? %>
-          <%= image_tag frustration.user.image, class: "user_icon" %>
-        <% else %>
-          <%= image_tag 'user_icon.png', class: "user_icon" %>
+<div>
+  <% @frustrations.reverse.each do |frustration| %>
+    <% if frustration.present? %>
+      <div class="review_wrapp">
+        <div class="review_box d-flex mt-2">
+          <div class="flex-shrink-0 avatar_review">
+            <% if frustration.user.image.present? %>
+              <%= image_tag frustration.user.image, class: "user_icon" %>
+            <% else %>
+              <%= image_tag 'user_icon.png', class: "user_icon" %>
+            <% end %>
+          </div>
+          <div class="flex-grow-1 ms-3">
+            <%= link_to review_path(frustration.id), class: "review_name" do %>
+              <p><%= frustration.user.name %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="mb-5">
+        <%= truncate(frustration.impression, length:100) do %>
+          <%= link_to "続きを読む", review_path(frustration.id) %>
+        <% end %>
+        <hr>
+        <% if user_signed_in? && frustration.user.id == current_user.id %>
+          <%=link_to "編集する", edit_review_path(frustration.id), class: "ms-2" %>
         <% end %>
       </div>
-      <div class="flex-grow-1 ms-3">
-        <p><%= frustration.user.name %></p>
-        <p class="review_time"><%= frustration.created_at %></p>
-        <%= frustration.impression %>
-      </div>
-    </div>
-    <% if user_signed_in? && frustration.user.id == current_user.id %>
-      <%=link_to "編集する", edit_review_path(frustration.id), class: "ms-2" %>
     <% end %>
-  <hr>
-  </div>
-<% end %>
+  <% end %>
+</div>

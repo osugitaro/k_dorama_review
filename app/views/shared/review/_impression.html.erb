@@ -20,7 +20,9 @@
         </div>
       </div>
       <div class="mb-5">
-        <p class="review_impression"><%= review.impression %></p>
+        <%= truncate(review.impression, length:100) do %>
+          <%= link_to "続きを読む", review_path(review.id) %>
+        <% end %>
         <hr>
         <div class="d-flex">
           <div id="likes_<%= review.id %>">

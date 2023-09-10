@@ -25,7 +25,7 @@
             </script>
           <% end %>
           <h5 class="card-title mt-2"><%= k_dorama.title %></h5>
-          <p class="card-text text-secondary"><%= k_dorama.introduction.truncate(20) %></p>
+          <p class="card-text text-secondary"><%= k_dorama.introduction.truncate(60) %></p>
           <%= link_to "詳細", k_dorama_path(k_dorama) %>
         </div>
       </div>
