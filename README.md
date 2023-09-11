@@ -7,7 +7,7 @@ k_dorama_reviewは韓国ドラマに特化したレビューサイトです。
 記載することが可能です。
 
 ## システム構成図
-[ER図](https://github.com/osugitaro/k_dorama_review/files/12574862/erd-3.pdf)
+![ER図](https://github.com/osugitaro/k_dorama_review/assets/118638450/84f6bc19-6b48-4412-909a-002afd8267ee)
 
 ## 使っている技術
 - Ruby 3.1.2
