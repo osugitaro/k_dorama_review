@@ -50,7 +50,8 @@ RSpec
 
 ### 使い方デモ
 下記はアプリのデモ動画です。
-![k_dorama_demo](https://github.com/osugitaro/k_dorama_review/assets/118638450/9b7f5f3b-9eb4-4ecb-964b-29afd0bc48d7)
+![デモ動画](https://github.com/osugitaro/k_dorama_review/assets/118638450/2aead76c-043a-47be-bfd5-865a3d7d9f5d)
+
 
 
 
