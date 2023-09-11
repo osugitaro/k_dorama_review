@@ -11,11 +11,12 @@ k_dorama_reviewは韓国ドラマに特化したレビューサイトです。
 
 ## 使っている技術
 - Ruby 3.1.2
-- Ruby on Rails 6.1.7.4
+- Ruby on Rails 6.1.7.6
 - sqlite3 1.6.3-x86_64-darwin
-- puma 5.6.6
+- puma 5.6.7
 - rspec-rails 6.0.3
 - capybara 3.39.2
+- selenium-webdriver 4.11.0
 - rubocop 1.32.0
 
 ## 機能一覧
