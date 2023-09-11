@@ -62,7 +62,7 @@ class KDoramasController < ApplicationController
     @k_doramas = @q.result(distinct: true)
     @k_doramas_rate = @k_doramas.order("rate_average DESC").page(params[:page]).per(6)
     @rate5 = @k_doramas.where(rate_average: 5.0).page(params[:page]).per(6)
-    @taller_than4 = @k_doramas.where("rate_average > ?", 4.0).page(params[:page]).per(6)
+    @taller_than4 = @k_doramas.where(rate_average: 4.0..).page(params[:page]).per(6)
   end
 
   private

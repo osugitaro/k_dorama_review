@@ -4,7 +4,7 @@ FactoryBot.define do
     introduction { "サクセスストーリー" }
     genre { "復讐系" }
     cast { "パク・ソジュン" }
-    rate_average { 4.5 }
+    rate_average { 4.0 }
 
     after(:build) do |k_dorama|
       k_dorama.image.attach(io: File.open('spec/fixtures/test_image.jpg'), filename: 'test_image.jpg', content_type: 'img/jpg')
