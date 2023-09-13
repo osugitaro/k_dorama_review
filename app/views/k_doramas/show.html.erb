@@ -17,7 +17,9 @@
         <p><%= @k_dorama.introduction %></p>
         <h5>キャスト</h5>
         <p><%= @k_dorama.cast %></p>
-        <%= link_to "レビューする", new_review_path(id: @k_dorama.id) %>
+        <%= link_to  new_review_path(id: @k_dorama.id), class: "btn btn-outline-primary" do %>
+         レビューする <i class="fa-regular fa-star"></i>
+        <% end %>
         <%= render "shared/share_sns" %>
         <% if admin_signed_in? %>
           <%= link_to "編集する", edit_k_dorama_path(@k_dorama) %>
