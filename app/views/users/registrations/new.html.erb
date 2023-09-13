@@ -21,7 +21,7 @@
 						<%= f.label :email, "メールアドレス" %>
 					</div>
 					<div class="form-floating mb-3">
-						<%= f.text_field :password, placeholder: "パスワード", class: "form-control", id: "password", required: true, pattern: "^([a-zA-Z0-9]{6,})$"  %>
+						<%= f.password_field :password, placeholder: "パスワード", class: "form-control", id: "password", required: true, pattern: "^([a-zA-Z0-9]{6,})$"  %>
 						<%= f.label :password, "パスワード(半角英数字6文字以上)" %>
 					</div>
 					<div class="d-grid">

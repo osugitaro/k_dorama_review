@@ -23,16 +23,16 @@
             <%= f.file_field :image, placeholder: "ファイルを選択", class: "form-control", id: "imgage"  %>
           </div>
           <div class="form-floating mb-3">
-            <%= f.text_field :password, placeholder: "パスワード", class: "form-control", id: "password" %>
+            <%= f.password_field :password, placeholder: "パスワード", class: "form-control", id: "password" %>
             <%= f.label :password, "パスワード" %>
           </div>
           <div class="form-floating mb-3">
-            <%= f.text_field :password_confirmation, placeholder: "確認用パスワード", class: "form-control", id: "password_confirmation" %><br>
+            <%= f.password_field :password_confirmation, placeholder: "確認用パスワード", class: "form-control", id: "password_confirmation" %><br>
             <%= f.label :password_confirmation, "確認用パスワード" %>
           </div>
 
           <div class="form-floating mb-3">
-            <%= f.text_field :current_password, placeholder: "現在のパスワード", class: "form-control", id: "current_password" %><br>
+            <%= f.password_field :current_password, placeholder: "現在のパスワード", class: "form-control", id: "current_password" %><br>
             <%= f.label :current_password, "更新をしたい場合は、現在のパスワードを入力してください" %>
           </div>
           <div class="d-grid">
