@@ -12,7 +12,7 @@
         <div class="card-body">
           <%= render "shared/review/review_star_average", k_dorama: k_dorama %>
           <h5 class="card-title mt-2"><%= k_dorama.title %></h5>
-          <p class="card-text text-secondary"><%= k_dorama.introduction.truncate(60) %></p>
+          <p class="card-text text-secondary"><%= k_dorama.introduction.truncate(80) %></p>
           <%= link_to "詳細", k_dorama_path(k_dorama), id: "show_#{k_dorama.title}" %>
         </div>
       </div>
