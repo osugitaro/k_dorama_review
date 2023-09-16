@@ -17,7 +17,7 @@ class KDoramasController < ApplicationController
   def create
     @k_dorama = KDorama.new(k_dorama_params)
     if @k_dorama.save
-      flash[:success] = "新しくドラマを投稿しました。c"
+      flash[:success] = "新しくドラマを投稿しました。"
       redirect_to k_doramas_path
     else
       flash.now[:danger] = "ドラマの投稿に失敗しました。"
