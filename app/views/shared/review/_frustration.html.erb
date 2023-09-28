@@ -14,6 +14,7 @@
             <%= link_to review_path(frustration.id), class: "review_name" do %>
               <p><%= frustration.user.name %></p>
             <% end %>
+            <p class="review_time"><%= frustration.updated_at.to_s(:datetime_jp) %></p>
           </div>
         </div>
       </div>

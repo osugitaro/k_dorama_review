@@ -9,7 +9,7 @@
     </div>
     <div class="flex-grow-1 ms-3">
       <p class="review_name"><%= comment.user.name %></p>
-      <p class="review_time"><%= comment.created_at%></p>
+      <p class="review_time"><%= comment.created_at.to_s(:datetime_jp) %></p>
       <p class="review_impression mt-1"><%= comment.comment %></p>
       <hr>
       <button class="reply_btn", id="reply_<%= comment.id %>_btn", data-bs-toggle="collapse" data-bs-target="#reply_<%= comment.id %>" aria-expanded="false" aria-controls="#reply_<%= comment.id %>" >
@@ -36,7 +36,7 @@
           </div>
           <div class="flex-grow-1 ms-3">
             <p><%= reply.user.name %></p>
-            <p class="review_time"><%= reply.created_at %></p>
+            <p class="review_time"><%= reply.updated_at.to_s(:datetime_jp) %></p>
             <%= reply.comment %>
           </div>
         </div>

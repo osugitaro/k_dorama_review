@@ -37,7 +37,7 @@ RSpec.describe Comment, type: :system do
       expect(page).to have_content "田中"
     end
     it 'コメントの作成時間が表示されること' do
-      expect(page).to have_content(comment.created_at)
+      expect(page).to have_content(comment.created_at.to_s(:datetime_jp))
     end
   end
   describe 'コメントの投稿', js: true do

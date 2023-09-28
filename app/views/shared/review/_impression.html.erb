@@ -14,7 +14,7 @@
             <%= link_to review_path(review.id), class: "review_name" do %>
               <p><%= review.user.name %></p>
             <% end %>
-            <p class="review_time"><%= review.created_at %></p>
+             <p class="review_time"><%= review.updated_at.to_s(:datetime_jp) %></p>
             <%= render "shared/review/review_star", review: review %>
           </div>
         </div>

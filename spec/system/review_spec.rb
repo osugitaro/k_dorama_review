@@ -16,7 +16,7 @@ RSpec.describe Review, type: :system do
           expect(page).to have_selector(".active", text: review.user.name)
         end
         it 'レビューの作成時間が表示されるていること' do
-          expect(page).to have_selector(".active", text: review.created_at)
+          expect(page).to have_selector(".active", text: review.updated_at.to_s(:datetime_jp))
         end
       end
       context 'このドラマがおすすめな人', js: true do
@@ -31,7 +31,7 @@ RSpec.describe Review, type: :system do
           expect(page).to have_selector(".active", text: review.user.name)
         end
         it 'レビューの作成時間が表示されていること' do
-          expect(page).to have_selector(".active", text: review.created_at)
+          expect(page).to have_selector(".active", text: review.updated_at.to_s(:datetime_jp))
         end
       end
       context 'このドラマをおすすめできない人', js: true do
@@ -46,7 +46,7 @@ RSpec.describe Review, type: :system do
           expect(page).to have_selector(".active", text: review.user.name)
         end
         it 'レビューの作成時間が表示されていること' do
-          expect(page).to have_selector(".active", text: review.created_at)
+          expect(page).to have_selector(".active", text: review.updated_at.to_s(:datetime_jp))
         end
       end
       context '途中ざせつしてしまった人の意見', js: true do

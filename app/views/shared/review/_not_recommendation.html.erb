@@ -11,7 +11,7 @@
         </div>
         <div class="flex-grow-1 ms-3">
           <p><%= review.user.name %></p>
-          <p class="review_time"><%= review.created_at %></p>
+          <p class="review_time"><%= review.updated_at.to_s(:datetime_jp) %></p>
             <div id="tc_<%= review.id %>">
               <%= truncate(review.not_recommendation, length:100) do %>
                 <%= link_to "続きを読む", '#', remote: true, onclick: "SeeMore('tc_#{review.id}', 'untc_#{review.id}')" %>
