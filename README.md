@@ -51,7 +51,7 @@ RSpec
 
 ### 使い方デモ
 下記はアプリのデモ動画です。
-![デモ動画](https://github.com/osugitaro/k_dorama_review/assets/118638450/2aead76c-043a-47be-bfd5-865a3d7d9f5d)
+![k_dorama demo](https://github.com/osugitaro/k_dorama_review/assets/118638450/171ef9c7-d4ed-4064-8f95-7a3218ff2da2)
 
 
 
